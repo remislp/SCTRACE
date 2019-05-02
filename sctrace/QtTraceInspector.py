@@ -6,8 +6,9 @@ processing.
 
 import os
 from math import log10, pow
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 import pyqtgraph as pg
 from pyqtgraph.dockarea import *
 import numpy as np
@@ -224,7 +225,7 @@ class TraceDock(Dock):
 
     def load(self):
         self.clear()
-        self.parent.filename = QFileDialog.getOpenFileName(self.parent,
+        self.parent.filename, filter = QFileDialog.getOpenFileName(self.parent,
             "Open single-channel record...",
             self.parent.path, 
             "Axon file (format 1.8) (*.abf *.ABF);" + 
